@@ -1,4 +1,6 @@
-﻿namespace simple_casino_game
+﻿using System.Runtime.InteropServices;
+
+namespace simple_casino_game
 {
     internal class Program
     {
@@ -9,15 +11,20 @@
             int score = 3;
             int tails = 0;
             int heads = 0;
-            string answer;
+            string answer, again;
+            bool done;
 
 
-           
-            
+            Console.WriteLine("Hello welcome to my casino game");
+            Console.WriteLine("Quick Run down of the rules. The Computer will ask you heads or tails. points are gained or lost depending if the anwser is right or wrong, Good Luck");
 
-            while (score >= 0)
+
+
+
+            done = false;
+            while (!done)
             {
-                Console.WriteLine("Hello welcome to my casino game ");
+                
                 Console.WriteLine("heads or tails?");
                 answer = Console.ReadLine().ToLower();
                 result = rnd.Next(2);
@@ -61,6 +68,26 @@
                     Console.WriteLine(" Your score is " +   score);
 
                 }
+                if (score == 0)
+                {
+                    done = true;
+
+                    Console.WriteLine("Good game, better luck next time");
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Would you like to play again?");
+                    again = Console.ReadLine().ToLower();
+
+                    if (again == "no")
+                    {
+                        done = true ;
+                    }
+
+
+                }
+                
 
 
 
